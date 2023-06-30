@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(telaPrincipal));
             panel1 = new Panel();
             btnMaterias = new Button();
-            btnDisciplines = new Button();
+            btnDisciplinas = new Button();
             btnQuestions = new Button();
             btnTests = new Button();
             btnDashboard = new Button();
@@ -48,7 +48,7 @@
             // panel1
             // 
             panel1.Controls.Add(btnMaterias);
-            panel1.Controls.Add(btnDisciplines);
+            panel1.Controls.Add(btnDisciplinas);
             panel1.Controls.Add(btnQuestions);
             panel1.Controls.Add(btnTests);
             panel1.Controls.Add(btnDashboard);
@@ -65,27 +65,29 @@
             // btnMaterias
             // 
             btnMaterias.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnMaterias.Location = new Point(1, 370);
+            btnMaterias.Location = new Point(1, 375);
             btnMaterias.Name = "btnMaterias";
             btnMaterias.Size = new Size(227, 40);
             btnMaterias.TabIndex = 22;
             btnMaterias.Text = "Matérias";
             btnMaterias.UseVisualStyleBackColor = true;
+            btnMaterias.Click += btnMaterias_Click;
             // 
-            // btnDisciplines
+            // btnDisciplinas
             // 
-            btnDisciplines.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDisciplines.Location = new Point(1, 416);
-            btnDisciplines.Name = "btnDisciplines";
-            btnDisciplines.Size = new Size(227, 40);
-            btnDisciplines.TabIndex = 21;
-            btnDisciplines.Text = "Disciplinas";
-            btnDisciplines.UseVisualStyleBackColor = true;
+            btnDisciplinas.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDisciplinas.Location = new Point(1, 421);
+            btnDisciplinas.Name = "btnDisciplinas";
+            btnDisciplinas.Size = new Size(227, 40);
+            btnDisciplinas.TabIndex = 21;
+            btnDisciplinas.Text = "Disciplinas";
+            btnDisciplinas.UseVisualStyleBackColor = true;
+            btnDisciplinas.Click += btnDisciplinas_Click;
             // 
             // btnQuestions
             // 
             btnQuestions.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnQuestions.Location = new Point(1, 324);
+            btnQuestions.Location = new Point(1, 329);
             btnQuestions.Name = "btnQuestions";
             btnQuestions.Size = new Size(227, 40);
             btnQuestions.TabIndex = 20;
@@ -95,7 +97,7 @@
             // btnTests
             // 
             btnTests.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTests.Location = new Point(1, 278);
+            btnTests.Location = new Point(1, 283);
             btnTests.Name = "btnTests";
             btnTests.Size = new Size(227, 40);
             btnTests.TabIndex = 19;
@@ -110,12 +112,12 @@
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Size = new Size(227, 40);
             btnDashboard.TabIndex = 4;
-            btnDashboard.Text = "Dashboard";
+            btnDashboard.Text = "Painel de Estudos";
             btnDashboard.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.tasks_png;
+            pictureBox1.Image = WinApp.Properties.Resources.tasks_png;
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(57, 54);
@@ -137,7 +139,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(12, 248);
+            label2.Location = new Point(12, 253);
             label2.Name = "label2";
             label2.Size = new Size(86, 15);
             label2.TabIndex = 1;
@@ -202,7 +204,7 @@
         private Button btnQuestions;
         private Button btnTests;
         private Button btnDashboard;
-        private Button btnDisciplines;
+        private Button btnDisciplinas;
         private Label label4;
     }
 }
