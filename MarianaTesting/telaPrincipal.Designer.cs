@@ -184,6 +184,7 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "telaPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MarianaTesting 1.0";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
