@@ -11,6 +11,6 @@ Projeto desenvolvido pela equipe [VARmengo](https://github.com/VARmengo/) para a
 
 ## Screenshot
 
-![App Screenshot]()
+<!-- ![App Screenshot]() -->
 
 
