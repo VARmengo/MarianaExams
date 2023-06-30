@@ -1,10 +1,11 @@
 namespace MarianaTesting
 {
-    public partial class Form1 : Form
+    public partial class telaPrincipal : Form
     {
-        public Form1()
+        public telaPrincipal()
         {
             InitializeComponent();
         }
+
     }
 }
