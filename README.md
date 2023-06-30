@@ -12,3 +12,5 @@ Projeto desenvolvido pela equipe [VARmengo](https://github.com/VARmengo/) para a
 ## Screenshot
 
 ![App Screenshot](https://imgur.com/a/lJHx7x2)
+
+
