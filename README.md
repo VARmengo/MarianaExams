@@ -1,4 +1,4 @@
-# MarianaExams
+# Study Hub
 
 Projeto desenvolvido pela equipe [VARmengo](https://github.com/VARmengo/) para a Academia do Programador 2023 como resolução do Trabalho 04.
 
@@ -11,6 +11,6 @@ Projeto desenvolvido pela equipe [VARmengo](https://github.com/VARmengo/) para a
 
 ## Screenshot
 
-<!-- ![App Screenshot]() -->
+![App Screenshot](https://imgur.com/yhsAAoo.png)
 
 
