@@ -22,7 +22,7 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
 
         public override void Inserir()
         {
-            CadastroDisciplinaForm telaDisciplina = new();
+            CadastroDisciplinaControl telaDisciplina = new();
 
             DialogResult opcaoEscolhida = telaDisciplina.ShowDialog();
 
@@ -52,7 +52,7 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
                 return;
             }
 
-            CadastroDisciplinaForm telaDisciplina = new CadastroDisciplinaForm();
+            CadastroDisciplinaControl telaDisciplina = new CadastroDisciplinaControl();
             telaDisciplina.ConfigurarTela(disciplinaSelecionada);
 
             DialogResult opcaoEscolhida = telaDisciplina.ShowDialog();
