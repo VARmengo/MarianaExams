@@ -46,7 +46,7 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
         {
             Questao questao = ObterQuestao();
 
-            
+
 
             string[] erros = questao.Validar();
 

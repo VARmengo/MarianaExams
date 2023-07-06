@@ -191,8 +191,10 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(cmbMateria);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CadastroQuestoesForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Cadastro de Questões";
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();

@@ -43,6 +43,13 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
             {
                 Questao questao = telaQuestoes.ObterQuestao();
 
+                if (questao.ValidarNomeExistente(questao, repositorioQuestoes.SelecionarTodos()))
+                {
+                    MessageBox.Show("Já existe uma questão com esse enunciado!");
+                    Inserir();
+                    return;
+                }
+
                 repositorioQuestoes.Inserir(questao);
 
                 CarregarQuestoes();
