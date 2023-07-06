@@ -1,24 +1,27 @@
-﻿using MarianaTesting.Dominio.ModuloDisciplina;
-using MarianaTesting.Dominio.ModuloMateria;
+﻿using MarianaTesting.Dominio.Compartilhado;
+using MarianaTesting.Dominio.ModuloDisciplina;
+using MarianaTesting.Dominio.ModuloMatéria;
 using MarianaTesting.Dominio.ModuloQuestoes;
 using MarianaTesting.Infra.Dados.Memoria.ModuloDisciplina;
 using MarianaTesting.Infra.Dados.Memoria.ModuloQuestoes;
 using MarianaTesting.WinApp.Compartilhado;
 using MarianaTesting.WinApp.ModuloDisciplina;
+using System.Drawing.Drawing2D;
 
 namespace MarianaTesting.WinApp.ModuloQuestoes
 {
     public class ControladorQuestoes : ControladorBase
     {
-        private RepositorioQuestoes repositorioQuestoes;
+        private IRepositorio<Questao> repositorioQuestoes;
+        private IRepositorio<Disciplina> repositorioDisciplina;
+        private IRepositorio<Materia> repositorioMateria;
         private TabelaQuestoesControl tabelaQuestoes;
-        private RepositorioDisciplina repositorioDisciplina;
-        //private RepositorioMateria repositorioMateria;
 
-        public ControladorQuestoes(RepositorioQuestoes repositorioQuestoes, RepositorioDisciplina repositorioDisciplina)
+        public ControladorQuestoes(IRepositorio<Questao> repositorioQuestoes, IRepositorio<Disciplina> repositorioDisciplina, IRepositorio<Materia> repositorioMaterias)
         {
             this.repositorioQuestoes = repositorioQuestoes;
             this.repositorioDisciplina = repositorioDisciplina;
+            this.repositorioMateria = repositorioMaterias;
         }
 
         public override string ToolTipInserir => "Cadastrar nova Questão";
@@ -30,9 +33,9 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
         public override void Inserir()
         {
             List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
-            //List<Materia> materias = repositorioMateria.SelecionarTodos();
+            List<Materia> materias = repositorioMateria.SelecionarTodos();
 
-            CadastroQuestoesForm telaQuestoes = new(disciplinas);
+            CadastroQuestoesForm telaQuestoes = new(disciplinas, materias);
 
             DialogResult opcaoEscolhida = telaQuestoes.ShowDialog();
 
@@ -63,9 +66,9 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
             }
 
             List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
-            //List<Materia> materias = repositorioMateria.SelecionarTodos();
+            List<Materia> materias = repositorioMateria.SelecionarTodos();
 
-            CadastroQuestoesForm telaQuestoes = new CadastroQuestoesForm(disciplinas);
+            CadastroQuestoesForm telaQuestoes = new CadastroQuestoesForm(disciplinas, materias);
 
             telaQuestoes.ConfigurarTela(questaoSelecionada);
 
@@ -74,6 +77,12 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Questao questao = telaQuestoes.ObterQuestao();
+
+                if (questao.ValidarNomeExistente(questao, repositorioQuestoes.SelecionarTodos()))
+                {
+                    MessageBox.Show("Já existe uma Questao igual");
+                    return;
+                }
 
                 repositorioQuestoes.Editar(questao.id, questao);
 
@@ -97,7 +106,7 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a questao: {questao.questao}?", "Exclusão de Disciplinas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a questao: {questao.nome}?", "Exclusão de Questões", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {

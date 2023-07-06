@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroMateriaControl));
             txtId = new TextBox();
             lblId = new Label();
             txtNomeMateria = new TextBox();
@@ -171,6 +172,7 @@
             Controls.Add(txtNomeMateria);
             Controls.Add(lblNomeMateria);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CadastroMateriaControl";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Cadastro de Matéria";

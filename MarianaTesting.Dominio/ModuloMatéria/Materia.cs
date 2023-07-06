@@ -1,10 +1,5 @@
 ﻿using MarianaTesting.Dominio.Compartilhado;
 using MarianaTesting.Dominio.ModuloDisciplina;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarianaTesting.Dominio.ModuloMatéria
 {
@@ -37,10 +32,10 @@ namespace MarianaTesting.Dominio.ModuloMatéria
                 erros.Add("O campo 'nome' é obrigatório");    
             
             if (disciplina == null)
-                erros.Add("Selecione uma 'disciplina' primeiro!");    
+                erros.Add("Selecione uma 'disciplina'");    
             
             if (string.IsNullOrEmpty(serie))
-                erros.Add("Selecione uma 'série' primeiro!");    
+                erros.Add("Selecione uma 'série'");    
 
 
             return erros.ToArray();
@@ -49,6 +44,11 @@ namespace MarianaTesting.Dominio.ModuloMatéria
         public bool ValidarNomeExistente(Materia materia, List<Materia> materias)
         {
             return materias.Any(m => string.Equals(m.nome, materia.nome, StringComparison.OrdinalIgnoreCase) && m.disciplina == materia.disciplina && m.serie == materia.serie);
+        }
+
+        public override string ToString()
+        {
+            return nome;
         }
     }
 }

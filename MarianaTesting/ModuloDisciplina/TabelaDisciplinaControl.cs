@@ -1,12 +1,10 @@
 ﻿using MarianaTesting.Dominio.ModuloDisciplina;
-using MarianaTesting.Infra.Dados.Memoria.ModuloDisciplina;
 using MarianaTesting.WinApp.Compartilhado;
 
 namespace MarianaTesting.WinApp.ModuloDisciplina
 {
     public partial class TabelaDisciplinaControl : UserControl
     {
-        private readonly ControladorDisciplina controladorDisciplina;
 
         public TabelaDisciplinaControl()
         {
@@ -23,17 +21,12 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "id",
-                    HeaderText = "ID"
+                    HeaderText = "Identificador"
                 },
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "nome",
                     HeaderText = "Nome"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "materias",
-                    HeaderText = "Materias"
                 }
             };
 

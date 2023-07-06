@@ -41,7 +41,7 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
 
             foreach (Questao q in questoes)
             {
-                grid.Rows.Add(q.id, q.questao);
+                grid.Rows.Add(q.id, q.nome);
             }
         }
 

@@ -34,6 +34,7 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
                 if (disciplina.ValidarNomeExistente(disciplina.disciplina, repositorioDisciplina.SelecionarTodos()))
                 {
                     MessageBox.Show("Já existe uma Disciplina com este nome");
+                    Inserir();
                     return;
                 }
                     
@@ -72,6 +73,7 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
                 if (disciplina.ValidarNomeExistente(disciplina.disciplina, repositorioDisciplina.SelecionarTodos()))
                 {
                     MessageBox.Show("Já existe uma Disciplina com este nome");
+                    Inserir();
                     return;
                 }
 

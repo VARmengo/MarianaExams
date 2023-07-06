@@ -1,16 +1,17 @@
 ﻿using MarianaTesting.Dominio.ModuloDisciplina;
-using MarianaTesting.Dominio.ModuloMateria;
+using MarianaTesting.Dominio.ModuloMatéria;
 using MarianaTesting.Dominio.ModuloQuestoes;
+using System.Linq;
 
 namespace MarianaTesting.WinApp.ModuloQuestoes
 {
     public partial class CadastroQuestoesForm : Form
     {
-        public CadastroQuestoesForm(List<Disciplina> disciplinas)
+        public CadastroQuestoesForm(List<Disciplina> disciplinas, List<Materia> materias)
         {
             InitializeComponent();
             CarregarDisciplinas(disciplinas);
-            //CarregarMaterias(materias);
+            CarregarMaterias(materias);
         }
 
         private void CarregarMaterias(List<Materia> materias)
@@ -29,8 +30,9 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
         {
             string enunciadoQuestao = txtQuestao.Text;
             Disciplina disciplina = (Disciplina)cmbDisciplina.SelectedItem;
+            Materia materia = (Materia)cmbMateria.SelectedItem;
 
-            Questao questao = new Questao(enunciadoQuestao, disciplina);
+            Questao questao = new Questao(enunciadoQuestao, disciplina, materia);
 
             return questao;
         }
@@ -44,21 +46,55 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
         {
             Questao questao = ObterQuestao();
 
+            
+
             string[] erros = questao.Validar();
 
             if (erros.Length > 0)
             {
-                MessageBox.Show(erros[0]);
+                AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
                 return;
             }
 
-            if (DialogResult == DialogResult.OK)
-                MessageBox.Show("Questao cadastrada com sucesso!");
+            if (cklAlternativas.CheckedItems.Count != 1)
+            {
+
+                DialogResult = DialogResult.None;
+
+                MessageBox.Show("Cadastre no mínimo uma alternativa correta");
+                return;
+            }
+        }
+
+        public void AtualizarRodape(string mensagem)
+        {
+            labelRodape.Text = mensagem;
         }
 
         public void ConfigurarTela(Questao questaoSelecionada)
         {
-            txtQuestao.Text = questaoSelecionada.questao;
+            txtQuestao.Text = questaoSelecionada.nome;
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            string alternativa = txtResposta.Text;
+
+            AlternativaQuestao alternativaQuestao = new AlternativaQuestao(alternativa);
+
+            cklAlternativas.Items.Add(alternativaQuestao);
+        }
+
+        public List<AlternativaQuestao> ObterAlternativaCorreta()
+        {
+            return cklAlternativas.CheckedItems.Cast<AlternativaQuestao>().ToList();
+        }
+
+        public List<AlternativaQuestao> ObterAlternativaIncorreta()
+        {
+            return cklAlternativas.Items.Cast<AlternativaQuestao>().Except(ObterAlternativaCorreta()).ToList();
         }
     }
 }

@@ -64,7 +64,7 @@ namespace MarianaTesting
         private void btnQuestions_Click(object sender, EventArgs e)
         {
             barraDeFerramenta.Visible = true;
-            controlador = new ControladorQuestoes(repositorioQuestoes, repositorioDisciplina);
+            controlador = new ControladorQuestoes(repositorioQuestoes, repositorioDisciplina, repositorioMateria);
 
             ConfigurarTelaPrincipal(controlador);
         }

@@ -40,6 +40,11 @@
             cmbDisciplina = new ComboBox();
             btnGravar = new Button();
             btnCancelar = new Button();
+            cklAlternativas = new CheckedListBox();
+            statusStrip1 = new StatusStrip();
+            labelstatus = new ToolStripStatusLabel();
+            labelRodape = new ToolStripStatusLabel();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // cmbMateria
@@ -101,6 +106,7 @@
             btnAdicionar.TabIndex = 6;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // label4
             // 
@@ -121,7 +127,8 @@
             // 
             // btnGravar
             // 
-            btnGravar.Location = new Point(411, 480);
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.Location = new Point(363, 543);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(80, 42);
             btnGravar.TabIndex = 9;
@@ -131,7 +138,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(497, 480);
+            btnCancelar.Location = new Point(449, 543);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(80, 42);
             btnCancelar.TabIndex = 10;
@@ -139,11 +146,40 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // cklAlternativas
+            // 
+            cklAlternativas.FormattingEnabled = true;
+            cklAlternativas.Location = new Point(110, 373);
+            cklAlternativas.Name = "cklAlternativas";
+            cklAlternativas.Size = new Size(419, 148);
+            cklAlternativas.TabIndex = 11;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { labelstatus, labelRodape });
+            statusStrip1.Location = new Point(0, 601);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(566, 22);
+            statusStrip1.TabIndex = 25;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // labelstatus
+            // 
+            labelstatus.Name = "labelstatus";
+            labelstatus.Size = new Size(0, 17);
+            // 
+            // labelRodape
+            // 
+            labelRodape.Name = "labelRodape";
+            labelRodape.Size = new Size(0, 17);
+            // 
             // CadastroQuestoesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(614, 534);
+            ClientSize = new Size(566, 623);
+            Controls.Add(statusStrip1);
+            Controls.Add(cklAlternativas);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Controls.Add(label4);
@@ -158,6 +194,8 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CadastroQuestoesForm";
             Text = "Cadastro de Questões";
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -175,5 +213,9 @@
         private ComboBox cmbDisciplina;
         private Button btnGravar;
         private Button btnCancelar;
+        private CheckedListBox cklAlternativas;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel labelstatus;
+        private ToolStripStatusLabel labelRodape;
     }
 }
