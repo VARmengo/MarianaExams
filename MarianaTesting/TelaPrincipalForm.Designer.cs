@@ -66,7 +66,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlDark;
+            panel1.BackColor = SystemColors.Control;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(btnMaterias);
             panel1.Controls.Add(btnDisciplinas);
@@ -202,9 +202,9 @@
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(75, 26);
             label1.Name = "label1";
-            label1.Size = new Size(131, 20);
+            label1.Size = new Size(93, 20);
             label1.TabIndex = 0;
-            label1.Text = "Mariana Exams";
+            label1.Text = "Study Hub";
             // 
             // label4
             // 
@@ -365,7 +365,7 @@
             toolStripLabel1.Size = new Size(162, 72);
             toolStripLabel1.Text = "Disciplinas Cadastradas";
             // 
-            // telaPrincipal
+            // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -376,9 +376,9 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "telaPrincipal";
+            Name = "TelaPrincipalForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MarianaExams 1.0";
+            Text = "Study Hub Alfa";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

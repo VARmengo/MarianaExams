@@ -1,9 +1,12 @@
 using MarianaTesting.Dominio.ModuloDisciplina;
 using MarianaTesting.Dominio.ModuloQuestoes;
+using MarianaTesting.Dominio.ModuloMatéria;
 using MarianaTesting.Infra.Dados.Memoria.ModuloDisciplina;
 using MarianaTesting.Infra.Dados.Memoria.ModuloQuestoes;
+using MarianaTesting.Infra.Dados.Memoria.ModuloMatéria;
 using MarianaTesting.WinApp.Compartilhado;
 using MarianaTesting.WinApp.ModuloDisciplina;
+using MarianaTesting.WinApp.ModuloMatéria;
 using MarianaTesting.WinApp.ModuloQuestoes;
 using System.Windows.Forms;
 
@@ -14,6 +17,7 @@ namespace MarianaTesting
         private ControladorBase controlador;
         private RepositorioDisciplina repositorioDisciplina = new RepositorioDisciplina(new List<Disciplina>());
         private RepositorioQuestoes repositorioQuestoes = new RepositorioQuestoes(new List<Questao>());
+        private RepositorioMateria repositorioMateria = new RepositorioMateria(new List<Materia>());
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -44,7 +48,10 @@ namespace MarianaTesting
 
         private void btnMaterias_Click(object sender, EventArgs e)
         {
+            barraDeFerramenta.Visible = true;
+            controlador = new ControladorMateria(repositorioMateria, repositorioDisciplina);
 
+            ConfigurarTelaPrincipal(controlador);
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

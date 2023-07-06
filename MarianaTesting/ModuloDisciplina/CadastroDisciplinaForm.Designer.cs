@@ -1,6 +1,6 @@
 ﻿namespace MarianaTesting.WinApp.ModuloDisciplina
 {
-    partial class CadastroDisciplinaForm
+    partial class CadastroDisciplinaControl
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroDisciplinaForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroDisciplinaControl));
             lblNomeDisciplina = new Label();
             btnCancelar = new Button();
             btnGravar = new Button();
             txtNomeDisciplina = new TextBox();
             txtId = new TextBox();
             lblId = new Label();
+            statusStrip1 = new StatusStrip();
+            labelstatus = new ToolStripStatusLabel();
+            labelRodape = new ToolStripStatusLabel();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // lblNomeDisciplina
@@ -48,24 +52,30 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.BackColor = Color.White;
+            btnCancelar.Cursor = Cursors.Hand;
             btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Location = new Point(242, 126);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(114, 45);
             btnCancelar.TabIndex = 20;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGravar
             // 
+            btnGravar.BackColor = Color.White;
+            btnGravar.Cursor = Cursors.Hand;
             btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.FlatStyle = FlatStyle.Flat;
             btnGravar.Location = new Point(100, 126);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(114, 45);
             btnGravar.TabIndex = 19;
             btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.UseVisualStyleBackColor = false;
             btnGravar.Click += btnGravar_Click;
             // 
             // txtNomeDisciplina
@@ -93,21 +103,44 @@
             lblId.TabIndex = 22;
             lblId.Text = "Id:";
             // 
-            // CadastroDisciplinaForm
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { labelstatus, labelRodape });
+            statusStrip1.Location = new Point(0, 191);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(436, 22);
+            statusStrip1.TabIndex = 24;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // labelstatus
+            // 
+            labelstatus.Name = "labelstatus";
+            labelstatus.Size = new Size(0, 17);
+            // 
+            // labelRodape
+            // 
+            labelRodape.Name = "labelRodape";
+            labelRodape.Size = new Size(0, 17);
+            // 
+            // CadastroDisciplinaControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(436, 191);
+            ClientSize = new Size(436, 213);
+            Controls.Add(statusStrip1);
             Controls.Add(txtId);
             Controls.Add(lblId);
             Controls.Add(txtNomeDisciplina);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Controls.Add(lblNomeDisciplina);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "CadastroDisciplinaForm";
+            Name = "CadastroDisciplinaControl";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Cadastro de Disciplina";
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -120,5 +153,8 @@
         private TextBox txtNomeDisciplina;
         private TextBox txtId;
         private Label lblId;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel labelstatus;
+        private ToolStripStatusLabel labelRodape;
     }
 }

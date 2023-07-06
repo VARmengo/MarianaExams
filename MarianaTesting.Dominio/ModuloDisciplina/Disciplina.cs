@@ -1,17 +1,17 @@
 ﻿using MarianaTesting.Dominio.Compartilhado;
-using MarianaTesting.Dominio.ModuloMateria;
+//using MarianaTesting.Dominio.ModuloMateria;
 
 namespace MarianaTesting.Dominio.ModuloDisciplina
 {
     public class Disciplina : EntidadeBase<Disciplina>
     {
         public string disciplina;
-        public List<Materia> materia;
+       // public List<Materia> materia;
 
         public Disciplina(string disciplina)
         {
             this.disciplina = disciplina;
-            this.materia = new List<Materia>();
+            //this.materia = new List<Materia>();
         }
 
         public Disciplina(int id, string disciplina)
@@ -38,6 +38,11 @@ namespace MarianaTesting.Dominio.ModuloDisciplina
                 //erros.Add("Já existe uma disciplina cadastrada com este nome");
 
             return erros.ToArray();
+        }
+
+        public override string ToString()
+        {
+            return disciplina;
         }
     }
 }

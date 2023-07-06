@@ -1,16 +1,33 @@
 ﻿using MarianaTesting.Dominio.ModuloDisciplina;
+using MarianaTesting.Dominio.ModuloMatéria;
 
 namespace MarianaTesting.WinApp.ModuloDisciplina
 {
-    public partial class CadastroDisciplinaForm : Form
+    public partial class CadastroDisciplinaControl : Form
     {
-        public CadastroDisciplinaForm()
+        public CadastroDisciplinaControl()
         {
             InitializeComponent();
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
-        {                                 
+        {
+            Disciplina disciplina = ObterDisciplina();
+
+            string[] erros = disciplina.Validar();
+
+            if (erros.Length > 0)
+            {
+                AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+                return;
+            }
+        }
+
+        public void AtualizarRodape(string mensagem)
+        {
+            labelRodape.Text = mensagem;
         }
 
         public Disciplina ObterDisciplina()
