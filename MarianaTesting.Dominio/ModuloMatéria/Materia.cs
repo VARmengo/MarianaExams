@@ -33,9 +33,6 @@ namespace MarianaTesting.Dominio.ModuloMatéria
             List<string> erros = new List<string>();
             List<Materia> materias = new List<Materia>();
 
-            //if (materias.Exists(m => m.nome == nome))
-            //   erros.Add("Já existe uma matéria cadastrada com este nome");
-
             if (string.IsNullOrEmpty(nome))
                 erros.Add("O campo 'nome' é obrigatório");    
             
@@ -49,5 +46,9 @@ namespace MarianaTesting.Dominio.ModuloMatéria
             return erros.ToArray();
         }
 
+        public bool ValidarNomeExistente(Materia materia, List<Materia> materias)
+        {
+            return materias.Any(m => string.Equals(m.nome, materia.nome, StringComparison.OrdinalIgnoreCase) && m.disciplina == materia.disciplina && m.serie == materia.serie);
+        }
     }
 }

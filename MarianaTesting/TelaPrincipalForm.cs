@@ -9,15 +9,16 @@ using MarianaTesting.WinApp.ModuloDisciplina;
 using MarianaTesting.WinApp.ModuloMatéria;
 using MarianaTesting.WinApp.ModuloQuestoes;
 using System.Windows.Forms;
+using MarianaTesting.Dominio.Compartilhado;
 
 namespace MarianaTesting
 {
     public partial class TelaPrincipalForm : Form
     {
         private ControladorBase controlador;
-        private RepositorioDisciplina repositorioDisciplina = new RepositorioDisciplina(new List<Disciplina>());
-        private RepositorioQuestoes repositorioQuestoes = new RepositorioQuestoes(new List<Questao>());
-        private RepositorioMateria repositorioMateria = new RepositorioMateria(new List<Materia>());
+        private IRepositorio<Disciplina> repositorioDisciplina = new RepositorioDisciplina(new List<Disciplina>());
+        private IRepositorio<Questao> repositorioQuestoes = new RepositorioQuestoes(new List<Questao>());
+        private IRepositorio<Materia> repositorioMateria = new RepositorioMateria(new List<Materia>());
 
         private static TelaPrincipalForm telaPrincipal;
 

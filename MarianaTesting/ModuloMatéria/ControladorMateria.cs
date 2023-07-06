@@ -1,4 +1,5 @@
-﻿using MarianaTesting.Dominio.ModuloDisciplina;
+﻿using MarianaTesting.Dominio.Compartilhado;
+using MarianaTesting.Dominio.ModuloDisciplina;
 using MarianaTesting.Dominio.ModuloMatéria;
 using MarianaTesting.Infra.Dados.Memoria.ModuloDisciplina;
 using MarianaTesting.Infra.Dados.Memoria.ModuloMatéria;
@@ -9,11 +10,11 @@ namespace MarianaTesting.WinApp.ModuloMatéria
 {
     public class ControladorMateria : ControladorBase
     {
-        private RepositorioMateria repositorioMateria;
-        private RepositorioDisciplina repositorioDisciplina;
+        private IRepositorio<Materia> repositorioMateria;
+        private IRepositorio<Disciplina> repositorioDisciplina;
         private TabelaMateriaControl tabelaMaterias;
 
-        public ControladorMateria(RepositorioMateria repositorioMateria, RepositorioDisciplina repositorioDisciplina)
+        public ControladorMateria(IRepositorio<Materia> repositorioMateria, IRepositorio<Disciplina> repositorioDisciplina)
         {
             this.repositorioMateria = repositorioMateria;
             this.repositorioDisciplina = repositorioDisciplina;
@@ -35,6 +36,12 @@ namespace MarianaTesting.WinApp.ModuloMatéria
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Materia materia = telaMateria.ObterMateria();
+
+                if (materia.ValidarNomeExistente(materia, repositorioMateria.SelecionarTodos()))
+                {
+                    MessageBox.Show("Já existe uma Materia com este nome");
+                    return;
+                }
 
                 repositorioMateria.Inserir(materia);
 
@@ -66,6 +73,13 @@ namespace MarianaTesting.WinApp.ModuloMatéria
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Materia materia = telaMateria.ObterMateria();
+
+                if (materia.ValidarNomeExistente(materia, repositorioMateria.SelecionarTodos()))
+                {
+                    MessageBox.Show("Já existe uma Materia com este nome");
+                    return;
+                }
+
                 repositorioMateria.Editar(materia.id, materia);
 
                 CarregarMaterias();

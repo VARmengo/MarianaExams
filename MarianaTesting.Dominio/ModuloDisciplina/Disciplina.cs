@@ -33,16 +33,18 @@ namespace MarianaTesting.Dominio.ModuloDisciplina
 
             if (string.IsNullOrEmpty(disciplina))
                 erros.Add("O campo 'disciplina' é obrigatório");
-
-            //if (disciplinas.Exists(d => d.disciplina == disciplina))
-                //erros.Add("Já existe uma disciplina cadastrada com este nome");
-
+                                    
             return erros.ToArray();
         }
 
         public override string ToString()
         {
             return disciplina;
+        }
+
+        public bool ValidarNomeExistente(string nome, List<Disciplina> listaDisciplinas)
+        {
+            return listaDisciplinas.Any(m => string.Equals(m.disciplina, nome, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

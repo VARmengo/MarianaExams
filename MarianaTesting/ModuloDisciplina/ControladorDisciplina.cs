@@ -1,4 +1,5 @@
-﻿using MarianaTesting.Dominio.ModuloDisciplina;
+﻿using MarianaTesting.Dominio.Compartilhado;
+using MarianaTesting.Dominio.ModuloDisciplina;
 using MarianaTesting.Infra.Dados.Memoria.ModuloDisciplina;
 using MarianaTesting.WinApp.Compartilhado;
 
@@ -6,7 +7,7 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
 {
     public class ControladorDisciplina : ControladorBase
     {
-        private RepositorioDisciplina repositorioDisciplina;
+        private IRepositorio<Disciplina> repositorioDisciplina;
         private TabelaDisciplinaControl tabelaDisciplinas;
 
         public override string ToolTipInserir => "Cadastrar nova Disciplina";
@@ -15,7 +16,7 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
 
         public override string ToolTipExcluir => "Excluir uma Disciplina Existente";
 
-        public ControladorDisciplina(RepositorioDisciplina repositorioDisciplina)
+        public ControladorDisciplina(IRepositorio<Disciplina> repositorioDisciplina)
         {
             this.repositorioDisciplina = repositorioDisciplina;
         }
@@ -29,6 +30,13 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Disciplina disciplina = telaDisciplina.ObterDisciplina();
+
+                if (disciplina.ValidarNomeExistente(disciplina.disciplina, repositorioDisciplina.SelecionarTodos()))
+                {
+                    MessageBox.Show("Já existe uma Disciplina com este nome");
+                    return;
+                }
+                    
 
                 repositorioDisciplina.Inserir(disciplina);
 
@@ -60,6 +68,13 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Disciplina disciplina = telaDisciplina.ObterDisciplina();
+
+                if (disciplina.ValidarNomeExistente(disciplina.disciplina, repositorioDisciplina.SelecionarTodos()))
+                {
+                    MessageBox.Show("Já existe uma Disciplina com este nome");
+                    return;
+                }
+
                 repositorioDisciplina.Editar(disciplina.id, disciplina);
 
                 CarregarDisciplinas();
