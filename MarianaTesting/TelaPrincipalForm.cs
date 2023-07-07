@@ -17,7 +17,7 @@ namespace MarianaTesting
     {
         private ControladorBase controlador;
         private IRepositorio<Disciplina> repositorioDisciplina = new RepositorioDisciplina(new List<Disciplina>());
-        private IRepositorio<Questao> repositorioQuestoes = new RepositorioQuestoes(new List<Questao>());
+        private IRepositorio<Questao> repositorioQuestoes = new RepositorioQuestao(new List<Questao>());
         private IRepositorio<Materia> repositorioMateria = new RepositorioMateria(new List<Materia>());
 
         private static TelaPrincipalForm telaPrincipal;

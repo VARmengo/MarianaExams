@@ -24,6 +24,11 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
             this.repositorioMateria = repositorioMaterias;
         }
 
+        public ControladorQuestoes()
+        {
+            
+        }
+
         public override string ToolTipInserir => "Cadastrar nova Questão";
 
         public override string ToolTipEditar => "Editar uma Questão existente";
@@ -84,6 +89,8 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Questao questao = telaQuestoes.ObterQuestao();
+                telaQuestoes.ObterAlternativaCorreta();
+                telaQuestoes.ObterAlternativaIncorreta();
 
                 if (questao.ValidarNomeExistente(questao, repositorioQuestoes.SelecionarTodos()))
                 {
@@ -124,7 +131,7 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
                 MessageBox.Show("Questão excluída com Sucesso!");
             }
         }
-        private Questao ObterQuestaoSelecionada()
+        public Questao ObterQuestaoSelecionada()
         {
             int id = tabelaQuestoes.ObterIdSelecionado();
             return repositorioQuestoes.SelecionarPorId(id);

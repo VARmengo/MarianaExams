@@ -44,6 +44,7 @@
             statusStrip1 = new StatusStrip();
             labelstatus = new ToolStripStatusLabel();
             labelRodape = new ToolStripStatusLabel();
+            btnRemover = new Button();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -173,11 +174,22 @@
             labelRodape.Name = "labelRodape";
             labelRodape.Size = new Size(0, 17);
             // 
+            // btnRemover
+            // 
+            btnRemover.Location = new Point(454, 498);
+            btnRemover.Name = "btnRemover";
+            btnRemover.Size = new Size(75, 23);
+            btnRemover.TabIndex = 26;
+            btnRemover.Text = "Remover";
+            btnRemover.UseVisualStyleBackColor = true;
+            btnRemover.Click += btnRemover_Click;
+            // 
             // CadastroQuestoesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(566, 623);
+            Controls.Add(btnRemover);
             Controls.Add(statusStrip1);
             Controls.Add(cklAlternativas);
             Controls.Add(btnCancelar);
@@ -219,5 +231,6 @@
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel labelstatus;
         private ToolStripStatusLabel labelRodape;
+        private Button btnRemover;
     }
 }

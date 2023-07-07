@@ -7,11 +7,14 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
 {
     public partial class CadastroQuestoesForm : Form
     {
+        private readonly ControladorQuestoes controladorQuestoes;
+
         public CadastroQuestoesForm(List<Disciplina> disciplinas, List<Materia> materias)
         {
             InitializeComponent();
             CarregarDisciplinas(disciplinas);
             CarregarMaterias(materias);
+            controladorQuestoes = new ControladorQuestoes();
         }
 
         private void CarregarMaterias(List<Materia> materias)
@@ -76,15 +79,34 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
         public void ConfigurarTela(Questao questaoSelecionada)
         {
             txtQuestao.Text = questaoSelecionada.nome;
+            cmbDisciplina.SelectedItem = questaoSelecionada.disciplina;
+            cmbMateria.SelectedItem = questaoSelecionada.materia;
+
+            cklAlternativas.Items.AddRange(questaoSelecionada.alternativas.ToArray());
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+
             string alternativa = txtResposta.Text;
 
-            AlternativaQuestao alternativaQuestao = new AlternativaQuestao(alternativa);
+            if (string.IsNullOrEmpty(alternativa))
+            {
+                DialogResult = DialogResult.None;
+                MessageBox.Show("A alternativa não pode ser em branco");
+                return;
+            }
 
-            cklAlternativas.Items.Add(alternativaQuestao);
+            //AlternativaQuestao alternativaQuestao = new AlternativaQuestao(alternativa);
+
+            //questao.alternativas.Add(alternativaQuestao);
+
+            cklAlternativas.Items.Add(alternativa);
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+
         }
 
         public List<AlternativaQuestao> ObterAlternativaCorreta()
@@ -95,6 +117,6 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
         public List<AlternativaQuestao> ObterAlternativaIncorreta()
         {
             return cklAlternativas.Items.Cast<AlternativaQuestao>().Except(ObterAlternativaCorreta()).ToList();
-        }
+        }        
     }
 }
