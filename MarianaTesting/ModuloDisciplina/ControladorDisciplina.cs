@@ -1,6 +1,8 @@
 ﻿using MarianaTesting.Dominio.Compartilhado;
 using MarianaTesting.Dominio.ModuloDisciplina;
+using MarianaTesting.Dominio.ModuloQuestoes;
 using MarianaTesting.Infra.Dados.Memoria.ModuloDisciplina;
+using MarianaTesting.Infra.Dados.Memoria.ModuloQuestoes;
 using MarianaTesting.WinApp.Compartilhado;
 
 namespace MarianaTesting.WinApp.ModuloDisciplina
@@ -9,6 +11,7 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
     {
         private IRepositorio<Disciplina> repositorioDisciplina;
         private TabelaDisciplinaControl tabelaDisciplinas;
+        private IRepositorio<Questao> repositorioQuestao;
 
         public override string ToolTipInserir => "Cadastrar nova Disciplina";
 
@@ -16,9 +19,10 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
 
         public override string ToolTipExcluir => "Excluir uma Disciplina Existente";
 
-        public ControladorDisciplina(IRepositorio<Disciplina> repositorioDisciplina)
+        public ControladorDisciplina(IRepositorio<Disciplina> repositorioDisciplina, IRepositorio<Questao> repositorioQuestao)
         {
             this.repositorioDisciplina = repositorioDisciplina;
+            this.repositorioQuestao = repositorioQuestao;
         }
 
         public override void Inserir()
@@ -101,6 +105,18 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
                    "Exclusão de Disciplinas",
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            bool podeExcluir = repositorioQuestao.VerificarQuestoesAbertasDisciplina(disciplina);
+
+            if (!podeExcluir)
+            {
+                MessageBox.Show($"Não é possível excluir uma disciplina que possui questões em aberto.",
+                    "Exclusão de Disciplinas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
 
                 return;
             }

@@ -1,4 +1,6 @@
-﻿namespace MarianaTesting.Dominio.Compartilhado
+﻿using MarianaTesting.Dominio.ModuloDisciplina;
+
+namespace MarianaTesting.Dominio.Compartilhado
 {
     public interface IRepositorio<TEntidade> where TEntidade : EntidadeBase<TEntidade>
     {
@@ -13,5 +15,6 @@
         List<TEntidade> SelecionarTodos();
 
         TEntidade SelecionarPorId(int id);
+        bool VerificarQuestoesAbertasDisciplina(Disciplina disciplina);
     }
 }

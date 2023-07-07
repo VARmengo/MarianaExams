@@ -11,5 +11,10 @@ namespace MarianaTesting.Infra.Dados.Memoria.ModuloMatéria
         {
             this.listaRegistros = materias;
         }
+
+        public bool VerificarQuestoesAbertasDisciplina(Disciplina disciplina)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

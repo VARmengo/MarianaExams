@@ -42,7 +42,7 @@ namespace MarianaTesting
         private void btnDisciplinas_Click(object sender, EventArgs e)
         {
             barraDeFerramenta.Visible = true;
-            controlador = new ControladorDisciplina(repositorioDisciplina);
+            controlador = new ControladorDisciplina(repositorioDisciplina, repositorioQuestoes);
 
             ConfigurarTelaPrincipal(controlador);
         }
