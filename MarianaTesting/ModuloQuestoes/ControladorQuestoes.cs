@@ -12,7 +12,7 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
 {
     public class ControladorQuestoes : ControladorBase
     {
-        private IRepositorio<Questao> repositorioQuestoes;
+        private readonly IRepositorio<Questao> repositorioQuestoes;
         private IRepositorio<Disciplina> repositorioDisciplina;
         private IRepositorio<Materia> repositorioMateria;
         private TabelaQuestoesControl tabelaQuestoes;
@@ -70,7 +70,7 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
             if (questaoSelecionada == null)
             {
                 MessageBox.Show($"Selecione uma questão primeiro!",
-                    "Edicação de Questões",
+                    "Edição de Questões",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 
@@ -89,8 +89,6 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
             if (opcaoEscolhida == DialogResult.OK)
             {
                 Questao questao = telaQuestoes.ObterQuestao();
-                telaQuestoes.ObterAlternativaCorreta();
-                telaQuestoes.ObterAlternativaIncorreta();
 
                 if (questao.ValidarNomeExistente(questao, repositorioQuestoes.SelecionarTodos()))
                 {
