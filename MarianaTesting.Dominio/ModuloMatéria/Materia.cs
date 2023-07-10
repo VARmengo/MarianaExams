@@ -1,5 +1,6 @@
 ﻿using MarianaTesting.Dominio.Compartilhado;
 using MarianaTesting.Dominio.ModuloDisciplina;
+using MarianaTesting.Dominio.ModuloQuestoes;
 
 namespace MarianaTesting.Dominio.ModuloMatéria
 {
@@ -8,6 +9,7 @@ namespace MarianaTesting.Dominio.ModuloMatéria
         public string nome;
         public Disciplina disciplina;
         public string serie;
+        public List<Questao> listaQuestoes;
 
         public Materia(int id, string nome, Disciplina disciplina, string serie)
         {
@@ -48,7 +50,7 @@ namespace MarianaTesting.Dominio.ModuloMatéria
 
         public override string ToString()
         {
-            return nome;
+            return nome + " " + serie;
         }
     }
 }
