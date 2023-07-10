@@ -28,64 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            grid = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            gridQuestao = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)gridQuestao).BeginInit();
             SuspendLayout();
             // 
-            // grid
+            // gridQuestao
             // 
-            grid.AllowUserToAddRows = false;
-            grid.AllowUserToDeleteRows = false;
-            grid.AllowUserToResizeColumns = false;
-            grid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.SelectionBackColor = Color.LightYellow;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            grid.BackgroundColor = SystemColors.ControlLight;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightYellow;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.LightYellow;
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            grid.DefaultCellStyle = dataGridViewCellStyle3;
-            grid.Location = new Point(27, 72);
-            grid.MultiSelect = false;
-            grid.Name = "grid";
-            grid.RowTemplate.Height = 25;
-            grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grid.Size = new Size(1000, 563);
-            grid.TabIndex = 1;
+            gridQuestao.AllowUserToAddRows = false;
+            gridQuestao.AllowUserToDeleteRows = false;
+            gridQuestao.AllowUserToResizeColumns = false;
+            gridQuestao.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.SelectionBackColor = Color.LightYellow;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            gridQuestao.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            gridQuestao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            gridQuestao.BackgroundColor = SystemColors.ControlLight;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = Color.LightYellow;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            gridQuestao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            gridQuestao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.LightYellow;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            gridQuestao.DefaultCellStyle = dataGridViewCellStyle6;
+            gridQuestao.Location = new Point(27, 72);
+            gridQuestao.MultiSelect = false;
+            gridQuestao.Name = "gridQuestao";
+            gridQuestao.RowTemplate.Height = 25;
+            gridQuestao.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridQuestao.Size = new Size(1000, 563);
+            gridQuestao.TabIndex = 1;
             // 
             // TabelaQuestoesControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
-            Controls.Add(grid);
+            Controls.Add(gridQuestao);
             Name = "TabelaQuestoesControl";
             Size = new Size(1053, 661);
-            ((System.ComponentModel.ISupportInitialize)grid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridQuestao).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView grid;
+        private DataGridView gridQuestao;
     }
 }

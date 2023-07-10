@@ -38,13 +38,13 @@
             btnAdicionar = new Button();
             label4 = new Label();
             cmbDisciplina = new ComboBox();
-            btnGravar = new Button();
-            btnCancelar = new Button();
             cklAlternativas = new CheckedListBox();
             statusStrip1 = new StatusStrip();
             labelstatus = new ToolStripStatusLabel();
             labelRodape = new ToolStripStatusLabel();
             btnRemover = new Button();
+            btnCancelar = new Button();
+            btnGravar = new Button();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -126,27 +126,6 @@
             cmbDisciplina.Size = new Size(230, 23);
             cmbDisciplina.TabIndex = 7;
             // 
-            // btnGravar
-            // 
-            btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(363, 543);
-            btnGravar.Name = "btnGravar";
-            btnGravar.Size = new Size(80, 42);
-            btnGravar.TabIndex = 9;
-            btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
-            btnGravar.Click += btnGravar_Click;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.Location = new Point(449, 543);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(80, 42);
-            btnCancelar.TabIndex = 10;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
-            // 
             // cklAlternativas
             // 
             cklAlternativas.FormattingEnabled = true;
@@ -184,16 +163,44 @@
             btnRemover.UseVisualStyleBackColor = true;
             btnRemover.Click += btnRemover_Click;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.White;
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Location = new Point(435, 553);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(94, 36);
+            btnCancelar.TabIndex = 34;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click_1;
+            // 
+            // btnGravar
+            // 
+            btnGravar.BackColor = Color.White;
+            btnGravar.Cursor = Cursors.Hand;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.FlatStyle = FlatStyle.Flat;
+            btnGravar.Location = new Point(335, 553);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(94, 36);
+            btnGravar.TabIndex = 33;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = false;
+            btnGravar.Click += btnGravar_Click_1;
+            // 
             // CadastroQuestoesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(566, 623);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
             Controls.Add(btnRemover);
             Controls.Add(statusStrip1);
             Controls.Add(cklAlternativas);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnGravar);
             Controls.Add(label4);
             Controls.Add(cmbDisciplina);
             Controls.Add(btnAdicionar);
@@ -232,5 +239,7 @@
         private ToolStripStatusLabel labelstatus;
         private ToolStripStatusLabel labelRodape;
         private Button btnRemover;
+        private Button button1;
+        private Button button2;
     }
 }

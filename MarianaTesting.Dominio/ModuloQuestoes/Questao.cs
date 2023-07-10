@@ -1,6 +1,7 @@
 ﻿using MarianaTesting.Dominio.Compartilhado;
 using MarianaTesting.Dominio.ModuloDisciplina;
 using MarianaTesting.Dominio.ModuloMatéria;
+using MarianaTesting.Dominio.ModuloTeste;
 
 namespace MarianaTesting.Dominio.ModuloQuestoes
 {
@@ -9,14 +10,17 @@ namespace MarianaTesting.Dominio.ModuloQuestoes
         public string nome;
         public Disciplina disciplina;
         public Materia materia;
-        public List<AlternativaQuestao> alternativas;
+        public List<string> alternativas;
+        public string alternativaCorreta;
 
-        public Questao(string nome, Disciplina disciplina, Materia materia)
+
+        public Questao(string nome, Disciplina disciplina, Materia materia, List<string> alternativaQuestao, string alternativaCorreta)
         {
             this.nome = nome;
             this.disciplina = disciplina;
             this.materia = materia;
-            this.alternativas = new List<AlternativaQuestao>();
+            this.alternativas = alternativaQuestao;
+            this.alternativaCorreta = alternativaCorreta;
         }
 
         public override void AtualizarInformacoes(Questao registroAtualizado)
@@ -30,7 +34,7 @@ namespace MarianaTesting.Dominio.ModuloQuestoes
         public override string[] Validar()
         {
             List<string> erros = new List<string>();
-            List<Questao> questoes = new List<Questao>();                       
+            List<Questao> questoes = new List<Questao>();
 
             if (disciplina == null)
                 erros.Add("Selecione uma 'disciplina' primeiro!");
@@ -49,39 +53,10 @@ namespace MarianaTesting.Dominio.ModuloQuestoes
         {
             return questoes.Any(m => string.Equals(m.nome, nome, StringComparison.OrdinalIgnoreCase));
         }
-    }
-
-    public class AlternativaQuestao
-    {
-        public string alternativa;
-        public bool correta;
-
-        public AlternativaQuestao() { }
-        public AlternativaQuestao(string alternativa)
-        {
-            this.alternativa = alternativa;
-        }
 
         public override string ToString()
         {
-            return alternativa;
-        }
-
-        public void MarcarOpcao()
-        {
-            correta = true;
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is AlternativaQuestao questao &&
-                   alternativa == questao.alternativa &&
-                   correta == questao.correta;
-        }
-
-        public void Desmarcar()
-        {
-            correta = false;
+            return nome;
         }
     }
 }

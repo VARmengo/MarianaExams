@@ -6,15 +6,12 @@ using System.Linq;
 namespace MarianaTesting.WinApp.ModuloQuestoes
 {
     public partial class CadastroQuestoesForm : Form
-    {
-        private readonly ControladorQuestoes controladorQuestoes;
-
+    {        
         public CadastroQuestoesForm(List<Disciplina> disciplinas, List<Materia> materias)
         {
             InitializeComponent();
             CarregarDisciplinas(disciplinas);
             CarregarMaterias(materias);
-            controladorQuestoes = new ControladorQuestoes();
         }
 
         private void CarregarMaterias(List<Materia> materias)
@@ -34,22 +31,18 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
             string enunciadoQuestao = txtQuestao.Text;
             Disciplina disciplina = (Disciplina)cmbDisciplina.SelectedItem;
             Materia materia = (Materia)cmbMateria.SelectedItem;
+            List<string> alternativaQuestao = new();
 
-            Questao questao = new Questao(enunciadoQuestao, disciplina, materia);
+            alternativaQuestao.AddRange(cklAlternativas.Items.Cast<string>());
+
+            Questao questao = new Questao(enunciadoQuestao, disciplina, materia, alternativaQuestao, cklAlternativas.CheckedItems[0].ToString());
 
             return questao;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnGravar_Click(object sender, EventArgs e)
+        private void btnGravar_Click_1(object sender, EventArgs e)
         {
             Questao questao = ObterQuestao();
-
-
 
             string[] erros = questao.Validar();
 
@@ -69,6 +62,11 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
                 MessageBox.Show("Cadastre no mínimo uma alternativa correta");
                 return;
             }
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            Close();
         }
 
         public void AtualizarRodape(string mensagem)
@@ -97,26 +95,12 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
                 return;
             }
 
-            //AlternativaQuestao alternativaQuestao = new AlternativaQuestao(alternativa);
-
-            //questao.alternativas.Add(alternativaQuestao);
-
             cklAlternativas.Items.Add(alternativa);
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-
+            cklAlternativas.Items.RemoveAt(cklAlternativas.SelectedIndex);
         }
-
-        public List<AlternativaQuestao> ObterAlternativaCorreta()
-        {
-            return cklAlternativas.CheckedItems.Cast<AlternativaQuestao>().ToList();
-        }
-
-        public List<AlternativaQuestao> ObterAlternativaIncorreta()
-        {
-            return cklAlternativas.Items.Cast<AlternativaQuestao>().Except(ObterAlternativaCorreta()).ToList();
-        }        
     }
 }
