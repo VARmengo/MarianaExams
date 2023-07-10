@@ -1,15 +1,17 @@
+using MarianaTesting.Dominio.Compartilhado;
 using MarianaTesting.Dominio.ModuloDisciplina;
-using MarianaTesting.Dominio.ModuloQuestoes;
 using MarianaTesting.Dominio.ModuloMatéria;
+using MarianaTesting.Dominio.ModuloQuestoes;
+using MarianaTesting.Dominio.ModuloTeste;
 using MarianaTesting.Infra.Dados.Memoria.ModuloDisciplina;
-using MarianaTesting.Infra.Dados.Memoria.ModuloQuestoes;
 using MarianaTesting.Infra.Dados.Memoria.ModuloMatéria;
+using MarianaTesting.Infra.Dados.Memoria.ModuloQuestoes;
+using MarianaTesting.Infra.Dados.Memoria.ModuloTeste;
 using MarianaTesting.WinApp.Compartilhado;
 using MarianaTesting.WinApp.ModuloDisciplina;
 using MarianaTesting.WinApp.ModuloMatéria;
 using MarianaTesting.WinApp.ModuloQuestoes;
-using System.Windows.Forms;
-using MarianaTesting.Dominio.Compartilhado;
+using MarianaTesting.WinApp.ModuloTeste;
 
 namespace MarianaTesting
 {
@@ -19,6 +21,7 @@ namespace MarianaTesting
         private IRepositorio<Disciplina> repositorioDisciplina = new RepositorioDisciplina(new List<Disciplina>());
         private IRepositorio<Questao> repositorioQuestoes = new RepositorioQuestao(new List<Questao>());
         private IRepositorio<Materia> repositorioMateria = new RepositorioMateria(new List<Materia>());
+        private IRepositorio<Teste> repositorioTeste = new RepositorioTeste(new List<Teste>());
 
         private static TelaPrincipalForm telaPrincipal;
 
@@ -56,9 +59,7 @@ namespace MarianaTesting
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            PrimeiraTelaControl primeiroPainel = new PrimeiraTelaControl();
-            primeiroPainel.Show();
+        {            
         }
 
         private void btnQuestions_Click(object sender, EventArgs e)
@@ -71,7 +72,10 @@ namespace MarianaTesting
 
         private void btnTests_Click(object sender, EventArgs e)
         {
+            barraDeFerramenta.Visible = true;
+            controlador = new ControladorTeste(repositorioQuestoes, repositorioDisciplina, repositorioMateria, repositorioTeste);
 
+            ConfigurarTelaPrincipal(controlador);
         }
 
         private void ConfigurarListagem(ControladorBase controladorBase)
