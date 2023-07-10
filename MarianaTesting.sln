@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domínio", "2 - Domíni
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infraestrutura", "3 - Infraestrutura", "{4C44DEFA-47CB-4FE5-92F5-088302266024}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarianaTesting.Dominio", "MarianaTesting.Dominio\MarianaTesting.Dominio.csproj", "{D406B000-5435-4067-9F9C-398172FA798D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarianaTesting.Dominio", "MarianaTesting.Dominio\MarianaTesting.Dominio.csproj", "{D406B000-5435-4067-9F9C-398172FA798D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarianaTesting.Infra.Dados.Memoria", "MarianaTesting.Infra.Dados.Memoria\MarianaTesting.Infra.Dados.Memoria.csproj", "{A89FB4F0-7316-400E-8F9D-5BACE9E4FBF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarianaTesting.Infra.Dados.Memoria", "MarianaTesting.Infra.Dados.Memoria\MarianaTesting.Infra.Dados.Memoria.csproj", "{A89FB4F0-7316-400E-8F9D-5BACE9E4FBF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

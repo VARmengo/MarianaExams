@@ -8,11 +8,11 @@ namespace MarianaTesting.Infra.Dados.Memoria.Compartilhado
         protected List<TEntidade> listaRegistros;
         protected int contadorRegistros = 0;
 
-        protected RepositorioEmMemoriaBase(List<TEntidade> listaRegistros)
-        {
-            this.listaRegistros = listaRegistros;
-            contadorRegistros = listaRegistros.Count;
-        }
+        //protected RepositorioEmMemoriaBase(List<TEntidade> listaRegistros)
+        //{
+        //    this.listaRegistros = listaRegistros;
+        //    contadorRegistros = listaRegistros.Count;
+        //}
 
         public virtual void Inserir(TEntidade registro)
         {
@@ -27,6 +27,12 @@ namespace MarianaTesting.Infra.Dados.Memoria.Compartilhado
         {
             registroSelecionado.AtualizarInformacoes(registroAtualizado);
         }
+        public virtual void Editar(int id, TEntidade registroAtualizado)
+        {
+            TEntidade registroSelecionado = SelecionarPorId(id);
+
+            registroSelecionado.AtualizarInformacoes(registroAtualizado);
+        }
 
         public virtual void Excluir(TEntidade registroSelecionado)
         {
@@ -36,6 +42,14 @@ namespace MarianaTesting.Infra.Dados.Memoria.Compartilhado
         public virtual List<TEntidade> SelecionarTodos()
         {
             return listaRegistros.OrderBy(x => x.id).ToList();
+        }
+
+        public virtual TEntidade SelecionarPorId(int id)
+        {
+            if (listaRegistros.Exists(registro => registro.id == id))
+                return listaRegistros.First(registro => registro.id == id);
+
+            return null;
         }
     }
 }
