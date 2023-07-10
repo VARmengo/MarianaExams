@@ -58,7 +58,7 @@ namespace MarianaTesting.WinApp.ModuloDisciplina
             if (disciplinaSelecionada == null)
             {
                 MessageBox.Show($"Selecione uma disciplina primeiro!",
-                    "Edicação de Disciplinas",
+                    "Edição de Disciplinas",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 

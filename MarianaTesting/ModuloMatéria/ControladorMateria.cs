@@ -57,7 +57,7 @@ namespace MarianaTesting.WinApp.ModuloMatéria
             if (materiaSelecionada == null)
             {
                 MessageBox.Show($"Selecione uma matéria primeiro!",
-                    "Edicação de Matérias",
+                    "Edição de Matérias",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 
