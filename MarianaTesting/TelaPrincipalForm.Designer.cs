@@ -41,7 +41,6 @@
             label1 = new Label();
             label4 = new Label();
             painelDashboard = new Panel();
-            pictureBox2 = new PictureBox();
             panel2 = new Panel();
             barraDeFerramenta = new ToolStrip();
             btnCadastrar = new ToolStripButton();
@@ -55,13 +54,14 @@
             btnExcluir = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripLabel1 = new ToolStripLabel();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             painelDashboard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
             barraDeFerramenta.SuspendLayout();
             toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -228,17 +228,6 @@
             painelDashboard.Size = new Size(1053, 661);
             painelDashboard.TabIndex = 3;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.InitialImage = (Image)resources.GetObject("pictureBox2.InitialImage");
-            pictureBox2.Location = new Point(0, 80);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1053, 532);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 3;
-            pictureBox2.TabStop = false;
-            // 
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlDark;
@@ -365,6 +354,16 @@
             toolStripLabel1.Size = new Size(162, 72);
             toolStripLabel1.Text = "Disciplinas Cadastradas";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.InitialImage = (Image)resources.GetObject("pictureBox2.InitialImage");
+            pictureBox2.Location = new Point(0, 80);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1053, 532);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 3;
+            pictureBox2.TabStop = false;
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -384,12 +383,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             painelDashboard.ResumeLayout(false);
             painelDashboard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
             barraDeFerramenta.ResumeLayout(false);
             barraDeFerramenta.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -414,12 +413,12 @@
         private ToolStripButton btnExcluir;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel toolStripLabel1;
-        private PictureBox pictureBox2;
         private ToolStrip barraDeFerramenta;
         private ToolStripButton btnCadastrar;
         private ToolStripButton btnEdit;
         private ToolStripButton btnDelete;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripLabel labelTitle;
+        private PictureBox pictureBox2;
     }
 }

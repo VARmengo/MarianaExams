@@ -15,6 +15,10 @@ namespace MarianaTesting.Infra.Dados.Memoria.ModuloMatéria
         public bool VerificarQuestoesAbertasDisciplina(Disciplina disciplina)
         {
             throw new NotImplementedException();
+        }       
+        public bool VerificarQuestoesAbertasMateria(Materia materia)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MarianaTesting.Dominio.ModuloDisciplina;
+using MarianaTesting.Dominio.ModuloMatéria;
 
 namespace MarianaTesting.Dominio.Compartilhado
 {
@@ -16,5 +17,6 @@ namespace MarianaTesting.Dominio.Compartilhado
 
         TEntidade SelecionarPorId(int id);
         bool VerificarQuestoesAbertasDisciplina(Disciplina disciplina);
+        bool VerificarQuestoesAbertasMateria(Materia materia);
     }
 }

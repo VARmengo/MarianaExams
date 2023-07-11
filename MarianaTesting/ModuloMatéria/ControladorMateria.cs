@@ -3,6 +3,7 @@ using MarianaTesting.Dominio.ModuloDisciplina;
 using MarianaTesting.Dominio.ModuloMatéria;
 using MarianaTesting.Infra.Dados.Memoria.ModuloDisciplina;
 using MarianaTesting.Infra.Dados.Memoria.ModuloMatéria;
+using MarianaTesting.Infra.Dados.Memoria.ModuloQuestoes;
 using MarianaTesting.WinApp.Compartilhado;
 
 
@@ -97,6 +98,17 @@ namespace MarianaTesting.WinApp.ModuloMatéria
                    "Exclusão de Matérias",
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            bool podeExcluir = repositorioMateria.VerificarQuestoesAbertasMateria(materia);
+
+            if (!podeExcluir)
+            {
+                MessageBox.Show($"Não é possível excluir uma matéria que possui questões em aberto.",
+                    "Exclusão de Matérias",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
 
                 return;
             }

@@ -101,6 +101,8 @@
             // 
             // btnAdicionar
             // 
+            btnAdicionar.Cursor = Cursors.Hand;
+            btnAdicionar.FlatStyle = FlatStyle.Flat;
             btnAdicionar.Location = new Point(425, 291);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(104, 36);
@@ -128,7 +130,9 @@
             // 
             // btnGravar
             // 
+            btnGravar.Cursor = Cursors.Hand;
             btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.FlatStyle = FlatStyle.Flat;
             btnGravar.Location = new Point(363, 543);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(80, 42);
@@ -139,6 +143,8 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Location = new Point(449, 543);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(80, 42);
@@ -154,6 +160,7 @@
             cklAlternativas.Name = "cklAlternativas";
             cklAlternativas.Size = new Size(419, 148);
             cklAlternativas.TabIndex = 11;
+            cklAlternativas.ItemCheck += cklAlternativas_ItemCheck;
             // 
             // statusStrip1
             // 
@@ -176,6 +183,8 @@
             // 
             // btnRemover
             // 
+            btnRemover.Cursor = Cursors.Hand;
+            btnRemover.FlatStyle = FlatStyle.Flat;
             btnRemover.Location = new Point(454, 498);
             btnRemover.Name = "btnRemover";
             btnRemover.Size = new Size(75, 23);

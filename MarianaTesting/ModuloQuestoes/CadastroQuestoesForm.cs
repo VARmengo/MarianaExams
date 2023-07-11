@@ -2,6 +2,7 @@
 using MarianaTesting.Dominio.ModuloMatéria;
 using MarianaTesting.Dominio.ModuloQuestoes;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace MarianaTesting.WinApp.ModuloQuestoes
 {
@@ -97,6 +98,9 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
                 return;
             }
 
+            if(cklAlternativas.Items.Count == 3)
+                btnAdicionar.Enabled = false;
+
             //AlternativaQuestao alternativaQuestao = new AlternativaQuestao(alternativa);
 
             //questao.alternativas.Add(alternativaQuestao);
@@ -106,7 +110,7 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-
+            cklAlternativas.Items.RemoveAt(cklAlternativas.SelectedIndex);
         }
 
         public List<AlternativaQuestao> ObterAlternativaCorreta()
@@ -117,6 +121,12 @@ namespace MarianaTesting.WinApp.ModuloQuestoes
         public List<AlternativaQuestao> ObterAlternativaIncorreta()
         {
             return cklAlternativas.Items.Cast<AlternativaQuestao>().Except(ObterAlternativaCorreta()).ToList();
-        }        
+        }
+
+        private void cklAlternativas_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked && cklAlternativas.CheckedItems.Count >= 4)
+                e.NewValue = CheckState.Unchecked;
+        }
     }
 }

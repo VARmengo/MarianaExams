@@ -18,5 +18,11 @@ namespace MarianaTesting.Infra.Dados.Memoria.ModuloQuestoes
             return listaRegistros
                 .Any(Questao => Questao.disciplina == disciplina) == false;
         }
+
+        public bool VerificarQuestoesAbertasMateria(Materia materia)
+        {
+            return listaRegistros
+                .Any(Questao => Questao.materia == materia) == false;
+        }
     }
 }
